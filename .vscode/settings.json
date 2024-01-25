@@ -1,4 +1,6 @@
 {
     "github.copilot.editor.enableCodeActions": true,
-    "github.copilot.editor.enableAutoCompletions": true
+    "github.copilot.editor.enableAutoCompletions": true,
+    "files.autoSave": "afterDelay",
+    "editor.quickSuggestionsDelay": 2
 }
