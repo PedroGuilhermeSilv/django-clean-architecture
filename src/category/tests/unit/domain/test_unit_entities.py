@@ -1,6 +1,6 @@
 from datetime import datetime
 import unittest
-from dataclasses import is_dataclass
+from dataclasses import is_dataclass, FrozenInstanceError
 from category.domain.entities import Category
 
 
@@ -31,3 +31,9 @@ class TestCategory(unittest.TestCase):
         category1 = Category(name='Movie1')
         category2 = Category(name='Movie2')
         self.assertNotEqual(category1.created_at.timestamp(), category2.created_at.timestamp())
+    
+    def test_is_imutable(self):
+        with self.assertRaises(FrozenInstanceError) :
+            category = Category(name='Movie')
+            category.name = 'Fake Name'
+            
