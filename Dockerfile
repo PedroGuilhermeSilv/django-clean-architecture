@@ -9,6 +9,7 @@ USER python
 WORKDIR /home/python/app
 
 COPY . /home/python/app
+COPY .ssh /root/.ssh
 
 ENV PYTHONPATH=${PYTHONPATH}/home/python/app/src
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
