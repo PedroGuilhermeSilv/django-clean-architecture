@@ -6,3 +6,4 @@ services:
     container_name: micro-videos-python-app
     volumes:
       - .:/home/python/app
+      - ~/.ssh:/root/.ssh:ro
