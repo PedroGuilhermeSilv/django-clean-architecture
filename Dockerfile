@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-RUN apt update && apt install -y --no-install-recommends default-jre git
+RUN apt update && apt install -y --no-install-recommends default-jre git && apt-get install -y ssh
 
 RUN useradd -ms /bin/bash python
 
