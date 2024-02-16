@@ -1,10 +1,49 @@
 
+from dataclasses import dataclass
 import unittest
 from unittest.mock import patch
 from dataclasses import is_dataclass, FrozenInstanceError
-from __seedwork.domain.value_objects import UniqueEntityId 
+from __seedwork.domain.value_objects import UniqueEntityId
 from __seedwork.domain.exceptions import InvalidUuidException
+from __seedwork.domain.value_objects import ValueObject
 import uuid
+from abc import ABC
+
+
+@dataclass(frozen=True)
+class StubOnProp(ValueObject):
+    prop: str
+
+
+@dataclass(frozen=True)
+class StubTwoProps(ValueObject):
+    prop1: str
+    prop2: str
+
+
+class TestValueObjectUnit(unittest.TestCase):
+    def test_if_is_a_dataclass(self):
+        self.assertTrue(is_dataclass(ValueObject))
+
+    def test_if_is_a_abstract_class(self):
+        self.assertIsInstance(ValueObject(), ABC)
+
+    def test_if_is_prop(self):
+        vo1 = StubOnProp('prop')
+        self.assertEqual(vo1.prop, 'prop')
+        vo2 = StubTwoProps('prop1', 'prop2')
+        self.assertEqual(vo2.prop1, 'prop1')
+
+    def test_convert_to_string(self):
+        vo1 = StubOnProp('prop')
+        self.assertEqual(str(vo1), 'prop')
+        vo2 = StubTwoProps('prop1', 'prop2')
+        self.assertEqual(str(vo2), '{"prop1": "prop1", "prop2": "prop2"}')
+
+    def test_is_imutable(self):
+        with self.assertRaises(FrozenInstanceError):
+            vo = StubOnProp('prop')
+            vo.prop = 'fake prop'
 
 
 class TestUniqueEntityIdUnit(unittest.TestCase):
@@ -53,8 +92,8 @@ class TestUniqueEntityIdUnit(unittest.TestCase):
             value_object = UniqueEntityId()
             uuid.UUID(value_object.id)
             mock_validate.assert_called_once()
-    
+
     def test_is_imutable(self):
-        with self.assertRaises(FrozenInstanceError) :
+        with self.assertRaises(FrozenInstanceError):
             value_object = UniqueEntityId()
             value_object.id = 'fake id'
