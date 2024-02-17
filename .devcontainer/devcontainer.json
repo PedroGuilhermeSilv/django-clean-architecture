@@ -42,7 +42,8 @@
 	"extensions": [
 		"ms-python.python",
 		"github.vscode-pull-request-github",
-		"sonarsource.sonarlint-vscode"
+		"sonarsource.sonarlint-vscode",
+		"github.copilot"
 
 
 	],
