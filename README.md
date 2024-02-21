@@ -25,7 +25,9 @@
 - São objetos que podem ser utilizados de em outras camadas de aplicação de forma a facilitar a implementação e reduzir duplicação de código.
 
 ## Slots
-- Previsão dos dados necessários
+- Em Python, os "slots" são uma técnica de otimização para classes. Eles são usados para pré-declarar atributos que uma instância da classe pode ter, o que ajuda a economizar espaço de memória e melhora o desempenho, especialmente em casos em que há muitas instâncias da classe.
+
+- Quando você define slots em uma classe, você está limitando dinamicamente quais atributos essa classe pode ter. Isso significa que, uma vez que os slots são definidos, as instâncias da classe só podem ter atributos que foram especificados nos slots. Isso é diferente do comportamento padrão em Python, onde você pode adicionar ou modificar atributos em qualquer instância de classe em tempo de execução.
 
 
 ## Configurações do ambiente de desenvolvimento
