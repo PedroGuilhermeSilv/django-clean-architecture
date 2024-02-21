@@ -53,7 +53,8 @@
 				"github.copilot",
 				"tamasfe.even-better-toml",
 				"charliermarsh.ruff",
-				"sourcery.sourcery"
+				"sourcery.sourcery",
+				"vivaxy.vscode-conventional-commits"
 			]
 			
 		}
