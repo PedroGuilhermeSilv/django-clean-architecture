@@ -2,4 +2,4 @@
 .history/
 *.pyc
 .docker/zsh/history/.zsh_history
-./.ssh
+.ssh/
