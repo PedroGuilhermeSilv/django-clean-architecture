@@ -7,6 +7,7 @@
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
 		"../docker-compose.yaml",
+		"../docker-compose.override.yaml",
 		"docker-compose.yml"
 	],
 
@@ -19,6 +20,8 @@
 	"workspaceFolder": "/home/python/app",
 	"mounts": ["source=${localWorkspaceFolder},target=/home/python/app,type=bind"],
 
+
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
@@ -30,7 +33,10 @@
 
 	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
 	// "shutdownAction": "none",
-
+	"settings":{
+		"terminal.integrated.defaultProfile.linux": "zsh"
+	},
+	
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "cat /etc/os-release",
 
@@ -39,13 +45,18 @@
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "devcontainer"
-	"extensions": [
-		"ms-python.python",
-		"github.vscode-pull-request-github",
-		"sonarsource.sonarlint-vscode",
-		"github.copilot"
-
-
-	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"sonarsource.sonarlint-vscode",
+				"github.copilot",
+				"tamasfe.even-better-toml",
+				"charliermarsh.ruff",
+				"sourcery.sourcery"
+			]
+			
+		}
+	},
 	"remoteUser": "python"
 }
