@@ -11,3 +11,13 @@ class Category(Entity):
     description: Optional[str] = None
     is_activate: Optional[bool] = True
     created_at: Optional[datetime] = field(default_factory=lambda: datetime.now())
+
+    def update(self, name: str, description: str):
+        self._set("name", name)
+        self._set("description", description)
+
+    def deactivate(self):
+        self._set("is_activate", False)
+
+    def activate(self):
+        self._set("is_activate", True)
