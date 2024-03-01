@@ -7,18 +7,14 @@ authors = [
 ]
 dependencies = [
     "pylint>=3.0.3",
+    "flake8>=7.0.0",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
 
-[build-system]
-requires = ["pdm-pep517>=0.12.0"]
-build-backend = "pdm.pep517.api"
-
-
 [tool.pdm]
-distribution = true
+distribution = false
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -26,3 +22,5 @@ dev = [
     "autopep8>=2.0.4",
     "pytest>=8.0.1",
 ]
+
+

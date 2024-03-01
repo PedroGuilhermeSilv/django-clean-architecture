@@ -34,7 +34,8 @@
 	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
 	// "shutdownAction": "none",
 	"settings":{
-		"terminal.integrated.defaultProfile.linux": "zsh"
+		"terminal.integrated.defaultProfile.linux": "zsh",
+		"python.pythonPath": "/usr/local/bin/python",
 	},
 	
 	// Uncomment the next line to run commands after the container is created.
@@ -54,7 +55,8 @@
 				"tamasfe.even-better-toml",
 				"charliermarsh.ruff",
 				"sourcery.sourcery",
-				"vivaxy.vscode-conventional-commits"
+				"vivaxy.vscode-conventional-commits",
+				"ms-python.flake8"
 			]
 			
 		}

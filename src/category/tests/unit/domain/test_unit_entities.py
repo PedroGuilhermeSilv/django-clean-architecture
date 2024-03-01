@@ -15,7 +15,6 @@ class TestCategory(unittest.TestCase):
         self.assertTrue(category.is_activate)
         self.assertIsInstance(category.created_at, datetime)
 
-
     def test_contructor_with_all_params(self):
         created_at = datetime.now()
         category = Category(

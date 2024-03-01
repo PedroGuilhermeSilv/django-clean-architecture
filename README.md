@@ -30,19 +30,24 @@
 - Quando você define slots em uma classe, você está limitando dinamicamente quais atributos essa classe pode ter. Isso significa que, uma vez que os slots são definidos, as instâncias da classe só podem ter atributos que foram especificados nos slots. Isso é diferente do comportamento padrão em Python, onde você pode adicionar ou modificar atributos em qualquer instância de classe em tempo de execução.
 
 ## Validação no DDD
-- Validação de Objetos de Domínio:
+- Não devemos permitir a criação de uma entidade em um estado inválido.
+- No projeto, o código é a essência, e a essência é o código. Toda inserção deve ser válida para ser persistida.
+- No contexto do Domain-Driven Design (DDD), as três tipos de validação se referem a diferentes níveis de validação dentro do domínio da aplicação:
+- Validação do Atributo:
+    - Esta validação ocorre no nível do próprio atributo de uma entidade ou valor do objeto.
+    - Envolve garantir que um valor atribuído a um campo ou propriedade atenda aos critérios de validade especificados.
+        Por exemplo, se um campo "idade" só pode aceitar valores positivos, a validação do atributo garantirá que apenas valores positivos sejam aceitos nesse campo.
 
-    - Métodos de Validação Interna: Os objetos de domínio geralmente encapsulam a lógica de validação dentro de si mesmos. Isso significa que cada objeto de domínio é responsável por garantir que esteja em um estado válido antes de permitir que qualquer operação seja executada sobre ele. Por exemplo, uma classe que representa um pedido pode ter métodos para verificar se todas as informações obrigatórias foram fornecidas, se os valores dos campos estão dentro de limites aceitáveis e assim por diante.
+- Validação do Objeto:
+    - A validação do objeto ocorre no nível da entidade ou valor do objeto como um todo.
+    - Envolve garantir que o estado do objeto como um todo seja válido e consistente.
+    - Isso pode envolver regras de negócios que precisam ser atendidas para que um objeto seja considerado válido.
+        Por exemplo, em um sistema de gerenciamento de pedidos, pode haver uma regra de negócios que exija que todos os pedidos tenham pelo menos um item.
 
-    - Invariantes de Domínio: Muitas vezes, a validação no DDD é expressa por meio de invariantes de domínio. Estes são conjuntos de regras que devem ser verdadeiros para que um objeto de domínio seja considerado válido. Os invariantes são aplicados em todas as operações sobre o objeto e garantem que ele permaneça em um estado consistente. Por exemplo, em um sistema de gerenciamento de estoque, um invariante pode ser que a quantidade em estoque nunca pode ser negativa.
-
-- Validação de Operações:
-
-    - Validação Pré-Operação: Antes de executar uma operação sobre um objeto de domínio, é importante validar se essa operação é permitida de acordo com as regras de negócios do domínio. Por exemplo, antes de enviar um pedido, pode ser necessário verificar se todos os itens do pedido estão em estoque.
-
-    - Validação Pós-Operação: Após a execução de uma operação, é necessário garantir que o objeto de domínio resultante permaneça em um estado válido. Isso pode envolver a verificação de invariantes de domínio novamente após a operação ter sido concluída. Por exemplo, após a confirmação de um pedido, pode ser necessário verificar se a quantidade em estoque foi atualizada corretamente.
-
-    - Transações e Atomicidade: A validação de operações muitas vezes está intimamente ligada ao conceito de transações no DDD. As operações devem ser atomicamente válidas, o que significa que elas devem ser executadas como uma unidade indivisível e garantir que o objeto de domínio permaneça em um estado válido durante todo o processo. Se uma operação falhar em qualquer ponto, o sistema deve garantir que ele retorne ao estado anterior de forma consistente.
+- Validação da Integridade:
+    - Este tipo de validação aborda a garantia de integridade entre diferentes objetos ou agregados dentro do domínio.
+    - Envolve garantir que as relações entre objetos estejam consistentes e que não ocorram violações de integridade referencial.
+        Por exemplo, em um sistema de banco de dados, a validação da integridade pode garantir que um pedido só possa ser associado a clientes existentes no sistema.
 
 
 ## Configurações do ambiente de desenvolvimento
