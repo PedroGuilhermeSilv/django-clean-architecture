@@ -18,16 +18,16 @@ class ValidatorRules:
         return self
 
     def string(self) -> "ValidatorRules":
-        if not isinstance(self.value, str):
+        if self.value is not None and not isinstance(self.value, str):
             raise ValidationException(f"{self.prop} must be a string")
         return self
 
     def max_length(self, max: int) -> "ValidatorRules":
-        if len(self.value) > max:
+        if self.value is not None and len(self.value) > max:
             raise ValidationException(f"{self.prop} must be less than {max} characters")
         return self
 
     def boolean(self) -> "ValidatorRules":
-        if self.value is not True and self.value is not False:
+        if self.value is not None and self.value is not True and self.value is not False:
             raise ValidationException(f"{self.prop} must be a boolean")
         return self
