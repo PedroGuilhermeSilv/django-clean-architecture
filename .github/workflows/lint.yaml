@@ -15,14 +15,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Run image
-        uses: abatilo/actions-poetry@v2
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v4
+        
       - name: Install dependencies
-        run: poetry install
-      - name: Run lint
-        run: poetry run flake8
+        run: pdm install
+
+      - name: Run Lint Flake8
+        run: pdm run flake8
