@@ -1,5 +1,3 @@
-from contextlib import AbstractContextManager
-from typing import Any
 import unittest
 from parameterized import parameterized
 
@@ -91,4 +89,6 @@ class TestValidorRules(unittest.TestCase):
         ]
     )
     def test_boolean_rule_correct(self, value, prop):
-        self.assertIsInstance(ValidatorRules.values(value=value, prop=prop).boolean(),ValidatorRules)
+        self.assertIsInstance(
+            ValidatorRules.values(value=value, prop=prop).boolean(), ValidatorRules
+        )
