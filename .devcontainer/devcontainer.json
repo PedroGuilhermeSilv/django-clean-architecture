@@ -56,7 +56,8 @@
 				"charliermarsh.ruff",
 				"sourcery.sourcery",
 				"vivaxy.vscode-conventional-commits",
-				"ms-python.flake8"
+				"ms-python.flake8",
+				"vivaxy.vscode-conventional-commits"
 			]
 			
 		}
